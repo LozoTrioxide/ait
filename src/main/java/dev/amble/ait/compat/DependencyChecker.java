@@ -12,6 +12,7 @@ public class DependencyChecker {
     private static final boolean HAS_GRAVITY = doesModExist("gravity_changer_q");
     private static final boolean HAS_INDIUM = doesModExist("indium");
     private static final boolean HAS_PERMISSION_API = doesModExist("fabric-permissions-api");
+    private static final boolean HAS_BLUEPRINT = doesModExist("blueprint");
 
     private static Boolean NVIDIA_CARD;
     private static Boolean MAC_OS;
@@ -38,6 +39,10 @@ public class DependencyChecker {
 
     public static boolean hasPermissionApi() {
         return HAS_PERMISSION_API;
+    }
+
+    public static boolean hasBlueprint() {
+        return HAS_BLUEPRINT;
     }
 
     @Environment(EnvType.CLIENT)
