@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "dev.amble.ait.mixin",
   "compatibilityLevel": "JAVA_17",
+  "priority": 1500,
   "plugin": "dev.amble.ait.compat.AITMixinPlugin",
   "mixins": [
     "EntityMixin",
