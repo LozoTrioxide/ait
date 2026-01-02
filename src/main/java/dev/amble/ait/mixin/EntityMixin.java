@@ -9,7 +9,12 @@ import net.minecraft.entity.Entity;
 
 import dev.amble.ait.api.ExtraPushableEntity;
 
-@Mixin(Entity.class)
+/**
+ * Mixin to handle push behavior copying between entities.
+ * Uses low priority (1500) to ensure compatibility with Blueprint mod
+ * which also mixins to Entity class with interface implementations.
+ */
+@Mixin(value = Entity.class, priority = 1500)
 public class EntityMixin {
 
     @Inject(method = "copyFrom", at = @At("TAIL"))

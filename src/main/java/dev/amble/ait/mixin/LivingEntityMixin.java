@@ -26,7 +26,12 @@ import dev.amble.ait.api.ExtraPushableEntity;
 import dev.amble.ait.core.AITTags;
 import dev.amble.ait.core.world.TardisServerWorld;
 
-@Mixin(LivingEntity.class)
+/**
+ * Mixin to add push behavior and TARDIS-related effects to living entities.
+ * Uses low priority (1500) to ensure compatibility with Blueprint mod
+ * which mixins to Entity class (parent of LivingEntity) with interface implementations.
+ */
+@Mixin(value = LivingEntity.class, priority = 1500)
 public abstract class LivingEntityMixin extends Entity implements ExtraPushableEntity {
 
     @Unique private TriState ait$pushable = TriState.DEFAULT;

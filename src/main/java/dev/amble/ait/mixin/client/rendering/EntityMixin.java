@@ -9,7 +9,11 @@ import net.minecraft.entity.Entity;
 
 import dev.amble.ait.core.entities.FlightTardisEntity;
 
-@Mixin(Entity.class)
+/**
+ * Client-side mixin to disable fire rendering for entities riding TARDIS.
+ * Uses low priority (1500) for Blueprint mod compatibility.
+ */
+@Mixin(value = Entity.class, priority = 1500)
 public class EntityMixin {
     @Inject(method = "doesRenderOnFire", at = @At("HEAD"), cancellable = true)
     public void ait$doesRenderOnFire(CallbackInfoReturnable<Boolean> cir) {
